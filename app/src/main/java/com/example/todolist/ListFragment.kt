@@ -51,11 +51,12 @@ class ListFragment : Fragment() {
             if (!GlobalData.completed[index]) {
                 val context = requireContext()
                 val container = LinearLayout(context)
-                container.layoutParams = LinearLayout.LayoutParams(
+                val layoutParams = LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
-
+                layoutParams.setMargins(0,5,0,5)
+                container.layoutParams=layoutParams
                 container.orientation = LinearLayout.HORIZONTAL
 
                 val item1 = TextView(context)

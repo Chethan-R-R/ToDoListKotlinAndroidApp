@@ -27,11 +27,12 @@ class CompletedFragment : Fragment() {
         for ((index, i) in titleList.withIndex()) {
             if(completed[index]) {
                 val container = LinearLayout(context)
-                container.layoutParams = LinearLayout.LayoutParams(
+                val layoutParams = LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
-
+                layoutParams.setMargins(0,5,0,5)
+                container.layoutParams=layoutParams
                 container.orientation = LinearLayout.HORIZONTAL
 
                 val item1 = TextView(context)

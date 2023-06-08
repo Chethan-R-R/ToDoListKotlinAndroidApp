@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.todolist.ListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_listFragment_to_addToListFragment"
+            app:destination="@id/addToListFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_toDoDiscriptionFragment"
+            app:destination="@id/toDoDiscriptionFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_completedFragment"
+            app:destination="@id/completedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addToListFragment"
+        android:name="com.example.todolist.AddToListFragment"
+        android:label="AddToListFragment" >
+        <action
+            android:id="@+id/action_addToListFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDoDiscriptionFragment"
+        android:name="com.example.todolist.ToDoDescriptionFragment"
+        android:label="ToDoDiscriptionFragment" >
+        <argument
+            android:name="index"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/completedFragment"
+        android:name="com.example.todolist.CompletedFragment"
+        android:label="CompletedFragment" />
+</navigation>

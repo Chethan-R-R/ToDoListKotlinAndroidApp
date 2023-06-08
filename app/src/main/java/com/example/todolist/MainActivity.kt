@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.preference.PreferenceManager
 import com.example.todolist.databinding.ActivityMainBinding
 import com.google.gson.Gson
@@ -29,11 +29,7 @@ class MainActivity : AppCompatActivity() {
             GlobalData.descriptionList = Gson().fromJson(savedDescriptionList, type)
             val type2: Type = object : TypeToken<MutableList<Boolean>>() {}.type
             GlobalData.completed = Gson().fromJson(savedCompletedList, type2)
-        supportFragmentManager
-            .beginTransaction()
-            .detach(ListFragment())
-            .attach(ListFragment())
-            .commit()
+            findNavController(R.id.navHoster).navigate(R.id.listFragment)
         }
 
     }

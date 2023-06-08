@@ -37,5 +37,9 @@
     <fragment
         android:id="@+id/completedFragment"
         android:name="com.example.todolist.CompletedFragment"
-        android:label="CompletedFragment" />
+        android:label="CompletedFragment" >
+        <action
+            android:id="@+id/action_completedFragment_to_toDoDiscriptionFragment"
+            app:destination="@id/toDoDiscriptionFragment" />
+    </fragment>
 </navigation>

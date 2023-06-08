@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.findNavController
 import com.example.todolist.databinding.FragmentCompletedBinding
 
 class CompletedFragment : Fragment() {
@@ -21,8 +22,8 @@ class CompletedFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_completed, container, false)
         val binding=FragmentCompletedBinding.inflate(inflater,container,false)
 
-        var titleList = GlobalData.titleList
-        var completed = GlobalData.completed
+        val titleList = GlobalData.titleList
+        val completed = GlobalData.completed
         for ((index, i) in titleList.withIndex()) {
             if(completed[index]) {
                 val container = LinearLayout(context)
@@ -34,7 +35,6 @@ class CompletedFragment : Fragment() {
                 container.orientation = LinearLayout.HORIZONTAL
 
                 val item1 = TextView(context)
-//            item1.setTextAppearance(R.style.todoitem)
                 item1.text = i
                 item1.textSize = 24f
                 item1.layoutParams = LinearLayout.LayoutParams(
@@ -69,7 +69,9 @@ class CompletedFragment : Fragment() {
 
                 val descBtn = Button(context)
                 descBtn.text = "More"
-
+                descBtn.setOnClickListener {
+                    it.findNavController().navigate(CompletedFragmentDirections.actionCompletedFragmentToToDoDiscriptionFragment(index))
+                }
 
                 item2.addView(doneBtn)
                 item2.addView(descBtn)
